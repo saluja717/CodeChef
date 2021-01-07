@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+char a[]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'};
+int main() {
+   ll t,n;
+   cin>>t;
+   string s;
+   while(t--)
+   {
+       cin>>n>>s;
+       ll ans=0,j=0;
+       for(int i=0;i<(n/4);i++)
+       {
+           ans=0;
+           string v= s.substr(j,j+4);
+           j+=4;
+           ll m=0;
+           for(int k=3;k>=0;k--)
+           {
+               int h= v[k]-'0';
+               ans=ans+h*pow(2,m);
+               m++;
+            }
+          
+          cout<<a[ans];
+       }
+       cout<<endl;
+   }
+	return 0;
+}
