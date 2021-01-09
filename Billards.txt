@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    int n,k,x,y;
+    while(t--)
+    {
+      cin>>n>>k>>x>>y;
+      int a[n],b[n];
+      if(x==y)
+      {
+        cout<<n<<" "<<n<<endl;
+        continue;
+      }
+      else if(x>y)
+      {
+          a[0]=n;
+          b[0]=n-x+y;
+          a[1]=n-x+y;
+          b[1]=n;
+          a[2]=0;
+          b[2]=x-y;
+          a[3]=x-y;
+          b[3]=0;
+      }
+      else
+      {
+          b[0]=n;
+          a[0]=n+x-y;
+          b[1]=n+x-y;
+          a[1]=n;
+          b[2]=0;
+          a[2]=y-x;
+          b[3]=y-x;
+          a[3]=0;
+      }
+      k=(k-1)%4;
+      cout<<a[k]<<" "<<b[k]<<endl;
+    }
+    return 0;
+}
