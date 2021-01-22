@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    int x,y;
+    while(t--)
+    {
+      cin>>x>>y;
+      int a[x],b[y];
+      int s1=0,s2=0;
+      for(int i=0;i<x;i++)
+      {
+        cin>>a[i];
+        s1+=a[i];
+      }
+      for(int i=0;i<y;i++)
+      {
+        cin>>b[i];
+        s2+=b[i];
+      }
+      sort(a,a+x);
+      sort(b,b+y);
+      if(s1>s2)
+      {
+        cout<<"0"<<endl;
+        continue;
+      }
+      int c1=s1,c2=s2;
+      int count=0;
+      int f=1;
+      for(int i=0;i<x;i++)
+      {
+        c1=c1-a[i]+b[y-i-1];
+        c2=c2+a[i]-b[y-i-1];
+        count++;
+        if(c1>c2)
+        {
+          cout<<count<<endl;
+          f=0;
+          break;
+        }
+      }
+      if(f)
+      {
+        cout<<"-1"<<endl;
+      }
+    }
+    return 0;
+}

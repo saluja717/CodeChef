@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int
+int main()
+{
+    ll t;
+    cin>>t;
+    ll len,bre;
+    while(t--)
+    {
+        cin>>len>>bre;
+        ll a=__gcd(len,bre);
+        cout<<(len*bre)/(a*a)<<endl;
+    }
+    
+    return 0;
+}
